@@ -229,78 +229,26 @@ button{touch-action:manipulation}
 input:not([type=radio]){-webkit-appearance:none;appearance:none}
 .list,.items,.tabs,.panel{-webkit-overflow-scrolling:touch}
 
-/* Responsive layout for GitHub Pages: phones, tablets, and desktop */
-@media (min-width: 700px) {
-  body { padding: 24px; }
-  .phone {
-    width: min(100%, 1180px);
-    max-width: 1180px;
-    height: min(900px, calc(100dvh - 48px));
-    aspect-ratio: auto;
-    border-radius: 26px;
-  }
-  /* Use the available desktop width without stretching every row excessively */
-  .list, .items, .panel {
-    padding-left: clamp(22px, 3vw, 38px);
-    padding-right: clamp(22px, 3vw, 38px);
-  }
-  #sStands .list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-content: start;
-    gap: 14px;
-  }
-  #sStands .list > h2 { grid-column: 1 / -1; }
-  #sStands .stand { min-width: 0; }
-  #sStands .stand > span:last-child { min-width: 0; }
-  #sStands .stand p { line-height: 1.45; }
-  #sMenu .items {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-content: start;
-  }
-  #sMenu .items > h2 { grid-column: 1 / -1; }
-  #sPay .items, #sNota .items { max-width: 820px; width: 100%; margin-inline: auto; }
-  #sStatus .list, #sHist .list { max-width: 1000px; width: 100%; margin-inline: auto; }
-  #sProf .list { max-width: 760px; width: 100%; margin-inline: auto; }
-  #sSell .list { max-width: 1050px; width: 100%; margin-inline: auto; }
-  #sLogin { flex-direction: row; }
-  #sLogin .hero {
-    flex: 0 0 43%;
-    min-height: 100%;
-    border-radius: 0 34% 34% 0 / 0 18% 18% 0;
-    padding: clamp(28px, 4vw, 52px);
-  }
-  #sLogin .hero .brand { font-size: clamp(2.4rem, 4vw, 3.6rem); }
-  #sLogin .tag { font-size: 1.05rem; }
-  #sLogin .cup { width: clamp(100px, 13vw, 170px); right: 10%; bottom: 12%; }
-  #sLogin .panel {
-    justify-content: center;
-    flex: 1;
-    padding: clamp(28px, 4vw, 58px);
-    max-width: 680px;
-    margin-inline: auto;
-    width: 100%;
-  }
-  #sLogin .btn { margin-top: 22px; }
-  .top { padding: 28px clamp(24px, 3vw, 40px); }
-  .mtop { padding: 22px clamp(22px, 3vw, 36px); }
-  .tabs { padding-left: clamp(22px, 3vw, 36px); padding-right: clamp(22px, 3vw, 36px); }
-  .cart { max-width: 600px; width: calc(100% - 44px); align-self: center; }
-  .nav { height: 72px; }
-  #sStands, #sStatus, #sHist, #sProf { padding-bottom: 72px; }
-}
-@media (min-width: 1000px) {
-  #sStands .list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  #sMenu .items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 699px) {
-  .phone { width: 100%; }
-  .stand, .item, .pm { min-width: 0; }
-  .stand > span:last-child, .info { min-width: 0; }
-  .stand h3 { overflow-wrap: anywhere; }
-}
-
+.link.corner{margin:6px 0 0 auto;font-size:.78rem}
+.cor{display:flex;justify-content:space-between;gap:10px;margin-top:10px}
+.cor .link{margin:0}
+.seg button{font-size:.82rem;padding:0 4px}
+s.old{color:var(--muted);font-weight:400;font-size:.78rem}
+details.addm summary{cursor:pointer;font-weight:700;color:var(--matcha);list-style:none}
+details.addm summary::-webkit-details-marker{display:none}
+details.addm[open] summary{margin-bottom:12px}
+details.addm .field:last-of-type{margin-bottom:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn.alt.dng{color:var(--berry-d);border-color:var(--berry)}
+.btn.alt.dng:hover{background:#FDE3EB}
+.mini.dng{background:#FDE3EB;color:var(--berry-d);margin-left:auto}
+.mod .mini{height:28px}
+.tbl.sm{font-size:.76rem}
+.tbl.sm th,.tbl.sm td{padding:8px 4px}
+.tbl .ok{color:var(--matcha);font-weight:700}
+.tbl .no{color:var(--berry-d);font-weight:700}
+.chkl{display:flex;align-items:center;gap:10px;font-size:.88rem;font-weight:500;margin:0 0 12px}
+input[type=checkbox]{width:20px;height:20px;padding:0;margin:0;flex:0 0 auto;accent-color:var(--matcha);-webkit-appearance:auto;appearance:auto}
 </style>
 </head>
 <body>
@@ -321,20 +269,21 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
     </header>
     <div class="panel">
       <h1>Masuk</h1>
-      <p class="sub">Masuk dengan NIM atau nomor penjual.</p>
+      <p class="sub">Gunakan NIM kamu untuk mulai memesan.</p>
       <div class="field" id="fNim">
-        <label for="nim">NIM / Nomor penjual</label>
-        <input id="nim" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="NIM atau 1234_Nama stand" maxlength="24">
+        <label for="nim">NIM</label>
+        <input id="nim" inputmode="numeric" autocomplete="username" placeholder="Contoh: 2210512045" maxlength="15">
       </div>
       <div class="field" id="fPass">
         <label for="pass">Password</label>
         <input id="pass" type="password" autocomplete="current-password" placeholder="Masukkan password" style="padding-right:84px">
         <button class="toggle" id="tg" type="button" aria-pressed="false">Lihat</button>
       </div>
-      <p class="hint">Mahasiswa: password awal sama dengan NIM. Penjual: nomor 1234_Nama stand (contoh 1234_PakTo), password 1234.</p>
+      <p class="hint">Password awal sama dengan NIM.</p>
       <p class="msg" id="msg" role="status" aria-live="polite"></p>
       <button class="btn" id="go" type="button">Masuk</button>
-      <p class="foot">Kantin kampus, <b>3 stand</b> siap melayani</p>
+      <p class="foot">Kantin kampus, pesan dan ambil tanpa antre</p>
+      <button class="link corner" id="toSell" type="button">Masuk sebagai penjual</button>
     </div>
   </section>
 
@@ -408,6 +357,34 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
     <div class="payfoot"><button class="btn" type="button" data-go="sStatus">Lihat status pesanan</button><button class="btn alt" type="button" data-go="sStands">Pesan lagi</button></div>
   </section>
 
+  <section class="screen" id="sSLogin">
+    <header class="top"><p class="brand">Canteen<span>+</span></p><p class="hello">Masuk penjual<small>Kelola pesanan, menu, dan promo stand</small></p></header>
+    <div class="panel">
+      <div class="field" id="fSN"><label for="sNum">Nomor penjual</label><input id="sNum" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Contoh: 1234_PakTo" maxlength="30"></div>
+      <div class="field" id="fSP"><label for="sPw">Password</label><input id="sPw" type="password" autocomplete="current-password" placeholder="Masukkan password"></div>
+      <p class="hint">Nomor penjual berformat 1234_Nama stand. Password awal 1234.</p>
+      <p class="msg" id="sMsg" role="status" aria-live="polite"></p>
+      <button class="btn" id="sGo" type="button">Masuk</button>
+      <div class="cor"><button class="link" id="sToB" type="button">Login pembeli</button><button class="link" id="sToO" type="button">Operator</button></div>
+    </div>
+  </section>
+
+  <section class="screen" id="sOLogin">
+    <header class="top"><p class="brand">Canteen<span>+</span></p><p class="hello">Masuk operator<small>Akses penuh ke seluruh sistem</small></p></header>
+    <div class="panel">
+      <div class="field" id="fOC"><label for="oCode">Kode operator</label><input id="oCode" type="password" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" placeholder="Masukkan kode khusus"></div>
+      <p class="msg" id="oMsg" role="status" aria-live="polite"></p>
+      <button class="btn" id="oGo" type="button">Masuk</button>
+      <div class="cor"><button class="link" id="oToB" type="button">Login pembeli</button><button class="link" id="oToS" type="button">Login penjual</button></div>
+    </div>
+  </section>
+
+  <section class="screen" id="sOp">
+    <header class="top"><div class="row"><p class="hello" style="margin:0">Operator<small>Akses penuh sistem Canteen+</small></p><button class="ghost" id="opOut" type="button">Keluar</button></div></header>
+    <div class="tabs" id="opTabs" role="tablist"></div>
+    <div class="list" id="opBody"></div>
+  </section>
+
   <nav class="nav" id="nav" aria-label="Menu utama">
     <button type="button" data-go="sStands"><span>🍽️</span>Stand</button>
     <button type="button" data-go="sStatus"><span>🔔<i id="bdg"></i></span>Pesanan</button>
@@ -437,13 +414,14 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
       minum:[['Matcha latte',12000,'🍵'],['Es stroberi susu',11000,'🍓'],['Air mineral',3000,'💧']]}}
   ];
   STANDS.forEach(function(s,si){CATS.forEach(function(c,ci){s.menu[c[0]].forEach(function(m,i){m[3]=(si*7+ci*5+i*3)%9+5;m[4]=(si*5+ci*7+i*11)%17+6;m[5]=Math.round(m[1]*0.7/500)*500})})});
+  STANDS.forEach(function(s){s.pw='1234';s.rent=100000;s.due=5});
   STANDS[1].menu.berat[2][3]=0;STANDS[1].menu.snack[1][3]=3;STANDS[2].menu.minum[0][3]=2;
   var cur=null, cat='berat', cart={};
   var rp=function(n){return 'Rp'+n.toLocaleString('id-ID')};
-  var MAIN=['sStands','sStatus','sHist','sProf'],ALL=MAIN.concat(['sLogin','sMenu','sPay','sSell','sNota']);
+  var MAIN=['sStands','sStatus','sHist','sProf'],ALL=MAIN.concat(['sLogin','sMenu','sPay','sSell','sNota','sSLogin','sOLogin','sOp']);
   function show(id){ALL.forEach(function(s){$(s).classList.toggle('on',s===id)});$('nav').classList.toggle('on',MAIN.indexOf(id)>-1);
     document.querySelectorAll('#nav button').forEach(function(b){b.setAttribute('aria-current',b.getAttribute('data-go')===id?'page':'false')});
-    if(id==='sStatus')renderStatus();if(id==='sHist')renderHist();if(id==='sProf')renderProf();if(id==='sSell')renderSell()}
+    if(id==='sStatus')renderStatus();if(id==='sHist')renderHist();if(id==='sProf')renderProf();if(id==='sSell')renderSell();if(id==='sStands')renderStands();if(id==='sOp')renderOp()}
 
   /* login */
   var nim=$('nim'),pass=$('pass'),msg=$('msg'),fN=$('fNim'),fP=$('fPass');
@@ -462,33 +440,22 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
     $('who').textContent=nim.value;$('pNim').textContent=nim.value;pw=pass.value;say('');show('sStands');
   }
   function stKey(t){return t.toLowerCase().replace(/^stand/,'').replace(/[^a-z]/g,'')}
-  function loginS(id){
-    var m=id.match(/^1234[_\s-]+(.+)$/),st=null;
-    if(m){var k=stKey(m[1]);STANDS.forEach(function(x){if(stKey(x.name)===k)st=x})}
-    if(!st){fN.classList.add('err');say('Nomor penjual tidak dikenali. Gunakan format 1234_Nama stand.','bad');nim.focus();return}
-    if(!pass.value){fP.classList.add('err');say('Isi password kamu.','bad');pass.focus();return}
-    if(pass.value!=='1234'){fP.classList.add('err');say('Nomor atau password salah. Coba lagi.','bad');pass.focus();return}
-    say('');sellSid=st.id;demoAuto=false;sellTab=0;$('sName').textContent=st.name;nim.value='';pass.value='';show('sSell');
-  }
-  function login(){
-    var id=nim.value.trim();fN.classList.remove('err');fP.classList.remove('err');
-    if(!id){fN.classList.add('err');say('Isi NIM atau nomor penjual dulu.','bad');nim.focus();return}
-    if(/^\d+$/.test(id)){nim.value=id;loginM();return}
-    loginS(id);
-  }
+  function login(){loginM()}
   $('go').addEventListener('click',login);
+  nim.addEventListener('input',function(){nim.value=nim.value.replace(/\D/g,'')});
   [nim,pass].forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')login()})});
   function logout(){nim.value='';pass.value='';cart={};pw='';ew={rek:''};bar();show('sLogin');nim.focus()}$('out').addEventListener('click',logout);
 
   /* stands */
-  var L=$('standList');
-  L.innerHTML='<h2>Pilih stand</h2>';
-  STANDS.forEach(function(s){
-    var b=document.createElement('button');b.type='button';b.className='stand';
-    b.innerHTML='<span class="badge" style="background:'+s.bg+'">'+s.em+'</span><span><h3>'+s.name+'</h3><p>'+s.desc+'</p><span class="chips"><span class="chip">Makanan berat</span><span class="chip p">Cemilan</span><span class="chip">Minuman</span></span></span>';
-    b.addEventListener('click',function(){open(s)});
-    L.appendChild(b);
-  });
+  function renderStands(){
+    var L=$('standList');L.innerHTML='<h2>Pilih stand</h2>';
+    if(!STANDS.length){L.innerHTML+='<div class="empty"><div>🍽️</div><b>Belum ada stand</b><p>Stand baru akan muncul di sini.</p></div>';return}
+    STANDS.forEach(function(s){
+      var b=document.createElement('button');b.type='button';b.className='stand';
+      b.innerHTML='<span class="badge" style="background:'+s.bg+'">'+s.em+'</span><span><h3>'+s.name+'</h3><p>'+(s.desc||'')+'</p><span class="chips"><span class="chip">Makanan berat</span><span class="chip p">Cemilan</span><span class="chip">Minuman</span>'+(hasPromo(s.id)?'<span class="chip p">Promo</span>':'')+'</span></span>';
+      b.addEventListener('click',function(){open(s)});L.appendChild(b);
+    });
+  }
 
   /* menu */
   function open(s){cur=s;cat='berat';$('mName').textContent=s.name;$('mDesc').textContent=s.desc;tabs();items();bar();show('sMenu')}
@@ -502,10 +469,10 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
     });
   }
   function items(){
-    var w=$('items');w.innerHTML='';
+    var w=$('items');w.innerHTML='';if(!cur.menu[cat].some(function(m){return !m[7]})){w.innerHTML='<div class="empty"><div>🍽️</div><b>Belum ada menu</b><p>Menu di kategori ini belum ditambahkan penjual.</p></div>';return}
     cur.menu[cat].forEach(function(m,i){
-      var k=cur.id+cat+i,q=cart[k]?cart[k].q:0,d=document.createElement('div');d.className='item'+(m[3]===0?' out':'');
-      d.innerHTML='<span class="em">'+m[2]+'</span><span class="info"><b>'+m[0]+'</b><span class="pr">'+rp(m[1])+'</span><span class="stk">'+stkChip(m)+'<small>'+(m[3]?'Sisa '+m[3]+', terjual ':'Terjual ')+m[4]+'</small></span></span><span class="step">'+(q?'<button class="minus" type="button" aria-label="Kurangi '+m[0]+'">&minus;</button><span class="qty">'+q+'</span>':'')+'<button class="plus" type="button"'+(m[3]===0?' disabled':'')+' aria-label="Tambah '+m[0]+'">+</button></span>';
+      if(m[7])return;var f=promoFor(cur.id,cat,i),k=cur.id+cat+i,q=cart[k]?cart[k].q:0,d=document.createElement('div');d.className='item'+(m[3]===0?' out':'');
+      d.innerHTML='<span class="em">'+m[2]+'</span><span class="info"><b>'+m[0]+'</b><span class="pr">'+(f?'<s class="old">'+rp(m[1])+'</s> '+rp(f.price):rp(m[1]))+'</span><span class="stk">'+stkChip(m)+(f?'<span class="chip p">'+f.pr.name+(f.pr.tt?' s.d. '+f.pr.tt:'')+'</span>':'')+'<small>'+(m[3]?'Sisa '+m[3]+', terjual ':'Terjual ')+m[4]+'</small></span></span><span class="step">'+(q?'<button class="minus" type="button" aria-label="Kurangi '+m[0]+'">&minus;</button><span class="qty">'+q+'</span>':'')+'<button class="plus" type="button"'+(m[3]===0?' disabled':'')+' aria-label="Tambah '+m[0]+'">+</button></span>';
       var mi=d.querySelector('.minus');
       if(mi)mi.addEventListener('click',function(){set(k,m,-1)});
       d.querySelector('.plus').addEventListener('click',function(){set(k,m,1)});
@@ -515,21 +482,21 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
   function set(k,m,n){
     var q=(cart[k]?cart[k].q:0)+n;
     if(n>0&&q>m[3]){toast('Stok '+m[0]+' tinggal '+m[3]);return}
-    if(q<=0)delete cart[k];else cart[k]={n:m[0],p:m[1],q:q,s:cur.id,c:cat,x:cur.menu[cat].indexOf(m)};
+    if(q<=0)delete cart[k];else{var xi=cur.menu[cat].indexOf(m);cart[k]={n:m[0],p:effP(cur.id,cat,xi),h:m[5],q:q,s:cur.id,c:cat,x:xi}}
     items();bar();
   }
-  function sum(){var c=0,t=0;for(var k in cart){c+=cart[k].q;t+=cart[k].q*cart[k].p}return[c,t]}
+  function sum(){refreshCart();var c=0,t=0;for(var k in cart){c+=cart[k].q;t+=cart[k].q*cart[k].p}return[c,t]}
   function stCount(){var o={};for(var k in cart)o[cart[k].s]=1;return Object.keys(o).length}
   function bar(){var s=sum();document.querySelectorAll('.cart').forEach(function(b){b.classList.toggle('on',s[0]>0);b.querySelector('.cc').textContent=s[0]+' item dari '+stCount()+' stand';b.querySelector('.ct').textContent=rp(s[1])})}
   $('back').addEventListener('click',function(){show('sStands')});
   /* pembayaran, status, riwayat, profil */
   var PM=[['QRIS','📱','Scan dengan aplikasi apa saja'],['E-wallet','👛','GoPay, OVO, DANA, ShopeePay'],['Transfer','🏦','Virtual account bank'],['Tunai','💵','Bayar di stand saat ambil pesanan']];
   var ST=[['Pesanan diterima','#7BC47F'],['Sedang diproses','#F2C230'],['Sedang dibuat','#F28C30'],['Siap diambil','#2E8B3A']];
-  var rekMode='D',notaFrom='sStatus',ew={rek:''},demoAuto=true,sellSid=null,sellTab=0,orders=[],pm=null,seq=0,pw='',payFrom='sStands',shown=false,tt;
+  var promos=[{id:'p0',sid:'ron',name:'Promo Matcha',scope:'minum:0',type:'pct',val:20,until:'',on:true}],rents=[],opMonth='',opMode=false,opTab=0,opPer='W',OPCODE='OPR-2026',rekMode='D',notaFrom='sStatus',ew={rek:''},demoAuto=true,sellSid=null,sellTab=0,orders=[],pm=null,seq=0,pw='',payFrom='sStands',shown=false,tt;
   function find(id){return STANDS.filter(function(s){return s.id===id})[0]}
-  function groups(c){var g={};for(var k in c){var e=c[k];(g[e.s]=g[e.s]||{name:find(e.s).name,items:[]}).items.push([e.n,e.p,e.q,e.s,e.c,e.x])}return Object.keys(g).map(function(k){return g[k]})}
+  function groups(c){var g={};for(var k in c){var e=c[k];(g[e.s]=g[e.s]||{name:(find(e.s)||{name:'Stand'}).name,items:[]}).items.push([e.n,e.p,e.q,e.s,e.c,e.x,e.h])}return Object.keys(g).map(function(k){return g[k]})}
   function build(c,d,m,st,live){var ps=groups(c),t=0;ps.forEach(function(p){p.st=st;p.items.forEach(function(i){t+=i[1]*i[2]})});return{id:'CP-'+(1001+seq++),date:d,method:m,total:t,live:live,parts:ps}}
-  function mk(d,m,list){var c={};list.forEach(function(l){var it=find(l[0]).menu[l[1]][l[2]];c[l[0]+l[1]+l[2]]={n:it[0],p:it[1],q:l[3],s:l[0],c:l[1],x:l[2]}});var o=build(c,d,m,3,0);o.nim='22105'+(12000+seq*37);return o}
+  function mk(d,m,list){var c={};list.forEach(function(l){var it=find(l[0]).menu[l[1]][l[2]];c[l[0]+l[1]+l[2]]={n:it[0],p:it[1],q:l[3],s:l[0],c:l[1],x:l[2],h:it[5]}});var o=build(c,d,m,3,0);o.nim='22105'+(12000+seq*37);return o}
   function ago(d,h,m){var x=new Date();x.setDate(x.getDate()-d);x.setHours(h,m,0,0);return x}
   orders=[
     mk(ago(25,12,20),'QRIS',[['to','berat',0,2],['ron','minum',0,1]]),
@@ -561,7 +528,7 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
   $('pBack').addEventListener('click',function(){show(payFrom)});
   document.querySelectorAll('.cart').forEach(function(b){b.addEventListener('click',openPay)});
   $('pay').addEventListener('click',function(){
-    var t=sum()[1],m=$('pMsg'),b=this;m.className='msg bad';
+    var t=sum()[1],m=$('pMsg'),b=this;m.className='msg bad';if(!sum()[0]){m.textContent='Keranjang kosong atau menu sudah tidak tersedia.';return}
     if(!pm){m.textContent='Pilih metode pembayaran dulu.';return}
     for(var k in cart){var c=cart[k],mi=find(c.s).menu[c.c][c.x];if(c.q>mi[3]){m.textContent='Stok '+c.n+' tinggal '+mi[3]+'. Ubah jumlahnya di menu.';return}}
     if((pm==='E-wallet'||pm==='Transfer')&&!/^\d{8,16}$/.test(ew.rek)){m.textContent='No. rekening harus 8 sampai 16 angka.';$('ewR').focus();return}
@@ -585,8 +552,8 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
       var done=o.parts.every(function(p){return p.st===3}),d=document.createElement('div');d.className='ord';
       d.innerHTML='<div class="row"><b>#'+o.id+'</b><span class="chip'+(done?'':' p')+'">'+(done?'Selesai':'Diproses')+'</span></div><p class="dt">'+fmt(o.date)+', bayar dengan '+o.method+'</p>'+o.parts.map(function(p){return '<div class="part"><b>'+p.name+'</b>'+lines(p)+'</div>'}).join('')+'<div class="ln tot"><span>Total pembayaran</span><span>'+rp(o.total)+'</span></div><button class="btn alt" type="button">Pesan lagi</button><button class="btn alt nb" type="button">Lihat nota</button>';
       d.querySelector('.btn').addEventListener('click',function(){
-        cart={};o.parts.forEach(function(p){p.items.forEach(function(i){cart[i[3]+i[4]+i[5]]={n:i[0],p:i[1],q:i[2],s:i[3],c:i[4],x:i[5]}})});
-        bar();openPay();
+        cart={};o.parts.forEach(function(p){p.items.forEach(function(i){var st0=find(i[3]);if(st0&&st0.menu[i[4]][i[5]]&&!st0.menu[i[4]][i[5]][7])cart[i[3]+i[4]+i[5]]={n:i[0],p:i[1],q:i[2],s:i[3],c:i[4],x:i[5],h:i[6]}})});
+        bar();if(!sum()[0]){toast('Menu dari pesanan ini sudah tidak tersedia.');return}openPay();
       });
       d.querySelector('.nb').addEventListener('click',function(){notaFrom='sHist';renderNota(o);show('sNota')});
       b.appendChild(d);
@@ -649,7 +616,7 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
     w.innerHTML=r.map(function(x){var o=x[0],p=x[1];return '<div class="ord"><div class="row"><b>#'+o.id+'</b><span class="chip">Selesai</span></div><p class="dt">'+fmt(o.date)+', NIM '+o.nim+', '+o.method+'</p><div class="part">'+lines(p)+'<div class="ln tot"><span>Subtotal stand</span><span>'+rp(ptot(p))+'</span></div></div></div>'}).join('');
   }
   function dayStart(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()}
-  function cost(i){return find(i[3]).menu[i[4]][i[5]][5]}
+  function cost(i){return i[6]!=null?i[6]:0}
   function cnt(o,p){return !o.live||o.method!=='Tunai'||p.taken}
   function rekapRows(mode,n){
     var base=mode==='D'?dayStart(new Date()):wkStart(new Date()),rows=[];
@@ -714,13 +681,19 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
     }).catch(function(e){toast(e&&e.code==='declined'?'Unduhan dibatalkan.':'Gagal membuat file Excel.')});
   }
   function sellStock(w){
-    var st=w.scrollTop,s=find(sellSid);w.innerHTML='';
+    var st=w.scrollTop,s=find(sellSid);w.innerHTML=menuForm();bindMenuForm(w,s);
     CATS.forEach(function(c){
       var h=document.createElement('h2');h.className='h';h.textContent=c[1];w.appendChild(h);
       s.menu[c[0]].forEach(function(m){
+        if(m[7])return;
         var d=document.createElement('div');d.className='item'+(m[3]===0?' out':'');
-        d.innerHTML='<span class="em">'+m[2]+'</span><span class="info"><b>'+m[0]+'</b><span class="stk">'+stkChip(m)+'<small>'+(m[3]?'Sisa '+m[3]+', terjual ':'Terjual ')+m[4]+'</small></span><span class="mod">Modal Rp <input type="number" inputmode="numeric" min="0" step="500" value="'+m[5]+'" aria-label="Harga modal '+m[0]+'"></span></span><span class="step"><button class="minus" type="button" aria-label="Kurangi stok '+m[0]+'">&minus;</button><span class="qty">'+m[3]+'</span><button class="plus" type="button" aria-label="Tambah stok '+m[0]+'">+</button></span>';
+        d.innerHTML='<span class="em">'+m[2]+'</span><span class="info"><b>'+m[0]+'</b><span class="pr">'+rp(m[1])+'</span><span class="stk">'+stkChip(m)+'<small>'+(m[3]?'Sisa '+m[3]+', terjual ':'Terjual ')+m[4]+'</small></span><span class="mod">Modal Rp <input type="number" inputmode="numeric" min="0" step="500" value="'+m[5]+'" aria-label="Harga modal '+m[0]+'"><button class="mini dng" type="button">Hapus</button></span></span><span class="step"><button class="minus" type="button" aria-label="Kurangi stok '+m[0]+'">&minus;</button><span class="qty">'+m[3]+'</span><button class="plus" type="button" aria-label="Tambah stok '+m[0]+'">+</button></span>';
         d.querySelector('.mod input').addEventListener('change',function(){m[5]=Math.max(0,Math.round(+this.value)||0);this.value=m[5]});
+        d.querySelector('.mini.dng').addEventListener('click',function(){
+          var b=this;
+          if(b.getAttribute('data-arm')!=='1'){b.setAttribute('data-arm','1');b.textContent='Yakin?';setTimeout(function(){b.setAttribute('data-arm','');b.textContent='Hapus'},3000);return}
+          m[7]=true;bar();toast(m[0]+' dihapus dari menu');sellStock(w);
+        });
         d.querySelector('.minus').addEventListener('click',function(){if(m[3]>0){m[3]--;sellStock(w)}});
         d.querySelector('.plus').addEventListener('click',function(){m[3]++;sellStock(w)});
         w.appendChild(d);
@@ -734,7 +707,7 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
   var ACT=['Terima & proses','Mulai buat','Tandai siap diambil','Sudah diambil'];
   function psid(p){return p.items[0][3]}
   function sellList(){var r=[];orders.forEach(function(o){if(o.live)o.parts.forEach(function(p){if(psid(p)===sellSid&&!p.taken)r.push([o,p])})});return r}
-  function exitSell(){show('sLogin')}
+  function exitSell(){if(opMode){opMode=false;$('sOut').textContent='Keluar';show('sOp')}else show('sLogin')}
   function renderSell(){
     var all=sellList(),tb=$('sTabs');tb.innerHTML='';
     SLAB.forEach(function(t,i){
@@ -742,12 +715,14 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
       b.type='button';b.className='tab';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===sellTab);b.textContent=t[0]+' ('+n+')';
       b.addEventListener('click',function(){sellTab=i;renderSell()});tb.appendChild(b);
     });
-    ['Riwayat','Rekap','Stok'].forEach(function(nm,k){var i=k+3,b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===sellTab);b.textContent=nm;b.addEventListener('click',function(){sellTab=i;renderSell()});tb.appendChild(b)});
+    ['Riwayat','Rekap','Menu','Promo','Tagihan'+(unpaidN(find(sellSid))?' ('+unpaidN(find(sellSid))+')':'')].forEach(function(nm,k){var i=k+3,b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===sellTab);b.textContent=nm;b.addEventListener('click',function(){sellTab=i;renderSell()});tb.appendChild(b)});
     var on=tb.querySelector('[aria-selected="true"]');if(on)on.scrollIntoView({inline:'center',block:'nearest'});
     var w=$('sBody');
     if(sellTab===3)return sellHist(w);
     if(sellTab===4)return sellRekap(w);
     if(sellTab===5)return sellStock(w);
+    if(sellTab===6)return sellPromo(w);
+    if(sellTab===7)return sellBill(w);
     var rows=all.filter(function(x){return SLAB[sellTab][1](x[1])});
     if(!rows.length){w.innerHTML='<div class="empty"><div>🍵</div><b>Belum ada pesanan di sini</b><p>Pesanan dari mahasiswa akan muncul di daftar ini.</p></div>';return}
     w.innerHTML='';
@@ -764,6 +739,448 @@ input:not([type=radio]){-webkit-appearance:none;appearance:none}
     });
   }
   $('sOut').addEventListener('click',exitSell);
+
+  /* promo, menu baru */
+  function clean(t){return String(t||'').replace(/[<>&"'`]/g,'').trim()}
+  function today(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+  function nowHM(){var d=new Date();return('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
+  function promoActive(pr){
+    if(!pr.on||(pr.until&&pr.until<today()))return false;
+    if(pr.tf&&pr.tt){var n=nowHM();return pr.tf<=pr.tt?(n>=pr.tf&&n<=pr.tt):(n>=pr.tf||n<=pr.tt)}
+    return true;
+  }
+  function hasPromo(sid){return promos.some(function(pr){return pr.sid===sid&&promoActive(pr)})}
+  function promoFor(sid,cat,idx){
+    var st=find(sid),m=st&&st.menu[cat]&&st.menu[cat][idx];if(!m||m[7])return null;
+    var best=null,bp=m[1];
+    promos.forEach(function(pr){
+      if(pr.sid!==sid||!promoActive(pr))return;
+      if(pr.scope!=='all'&&pr.scope!==cat+':'+idx)return;
+      var np=pr.type==='pct'?Math.round(m[1]*(100-pr.val)/100/100)*100:Math.max(0,m[1]-pr.val);
+      if(np<bp){best=pr;bp=np}
+    });
+    return best?{pr:best,price:bp}:null;
+  }
+  function effP(sid,cat,idx){var f=promoFor(sid,cat,idx);return f?f.price:find(sid).menu[cat][idx][1]}
+  function refreshCart(){for(var k in cart){var c=cart[k],st=find(c.s),mi=st&&st.menu[c.c][c.x];if(mi&&!mi[7]){c.p=effP(c.s,c.c,c.x);c.h=mi[5]}else delete cart[k]}}
+  function menuForm(){
+    return '<details class="ord addm"><summary>+ Tambah menu baru</summary>'
+     +'<div class="field"><label for="nmN">Nama menu</label><input id="nmN" maxlength="30" placeholder="Contoh: Nasi goreng"></div>'
+     +'<div class="field"><label for="nmC">Kategori</label><select id="nmC"><option value="berat">Makanan berat</option><option value="snack">Cemilan</option><option value="minum">Minuman</option></select></div>'
+     +'<div class="field"><label for="nmP">Harga jual (Rp)</label><input id="nmP" type="number" inputmode="numeric" min="0" step="500" placeholder="Contoh: 15000"></div>'
+     +'<div class="field"><label for="nmM">Modal (Rp), kosongkan untuk otomatis 70%</label><input id="nmM" type="number" inputmode="numeric" min="0" step="500"></div>'
+     +'<div class="field"><label for="nmS">Stok awal</label><input id="nmS" type="number" inputmode="numeric" min="0" value="10"></div>'
+     +'<div class="field"><label for="nmE">Emoji (opsional)</label><input id="nmE" maxlength="4" placeholder="🍽️"></div>'
+     +'<button class="btn" id="nmGo" type="button" style="margin:0;width:100%">Tambah menu</button></details>';
+  }
+  function bindMenuForm(w,s){
+    $('nmGo').addEventListener('click',function(){
+      var nm=clean($('nmN').value),c=$('nmC').value,pr=Math.round(+$('nmP').value),md=$('nmM').value===''?null:Math.round(+$('nmM').value),
+          sk=Math.max(0,Math.round(+$('nmS').value)||0),em=clean($('nmE').value)||{berat:'🍽️',snack:'🍪',minum:'🥤'}[c];
+      if(nm.length<2){toast('Isi nama menu dulu.');return}
+      if(!(pr>0)){toast('Isi harga jual dengan benar.');return}
+      if(s.menu[c].some(function(m){return !m[7]&&m[0].toLowerCase()===nm.toLowerCase()})){toast('Menu itu sudah ada.');return}
+      s.menu[c].push([nm,pr,em,sk,0,md==null?Math.round(pr*0.7/500)*500:Math.max(0,md)]);
+      toast(nm+' ditambahkan');sellStock(w);
+    });
+  }
+  function pcard(pr){
+    var sc='Semua menu',st=find(pr.sid);
+    if(pr.scope!=='all'){var a=pr.scope.split(':'),m=st.menu[a[0]][+a[1]];sc=m&&!m[7]?m[0]:'Menu dihapus'}
+    var exp=pr.until&&pr.until<today(),stt=exp?'Kedaluwarsa':(!pr.on?'Nonaktif':(promoActive(pr)?'Aktif':'Di luar jam'));
+    return '<div class="ord"><div class="row"><b>'+pr.name+'</b><span class="chip'+(stt==='Aktif'?'':' p')+'">'+stt+'</span></div>'
+      +'<p class="dt">'+(pr.type==='pct'?'Diskon '+pr.val+'%':'Potongan '+rp(pr.val))+', untuk '+sc+'</p>'
+      +'<p class="dt">'+(pr.until?'Berlaku sampai '+pr.until:'Tanpa batas tanggal')+', '+(pr.tf?'jam '+pr.tf+' sampai '+pr.tt:'sepanjang hari')+'</p>'
+      +'<div class="two"><button class="btn alt" type="button" data-pt="'+pr.id+'">'+(pr.on?'Nonaktifkan':'Aktifkan')+'</button><button class="btn alt dng" type="button" data-pd="'+pr.id+'">Hapus</button></div></div>';
+  }
+  function sellPromo(w){
+    var s=find(sellSid),st=w.scrollTop,opts='<option value="all">Semua menu di stand</option>';
+    CATS.forEach(function(c){s.menu[c[0]].forEach(function(m,i){if(m[7])return;opts+='<option value="'+c[0]+':'+i+'">'+c[1]+': '+m[0]+'</option>'})});
+    var mine=promos.filter(function(p){return p.sid===sellSid});
+    w.innerHTML='<details class="ord addm"><summary>+ Buat promo baru</summary>'
+      +'<div class="field"><label for="prN">Nama promo</label><input id="prN" maxlength="30" placeholder="Contoh: Diskon Jumat"></div>'
+      +'<div class="field"><label for="prS">Berlaku untuk</label><select id="prS">'+opts+'</select></div>'
+      +'<div class="field"><label for="prT">Jenis potongan</label><select id="prT"><option value="pct">Diskon persen (%)</option><option value="rp">Potongan harga (Rp)</option></select></div>'
+      +'<div class="field"><label for="prV">Nilai potongan</label><input id="prV" type="number" inputmode="numeric" min="1" placeholder="Contoh: 10"></div>'
+      +'<div class="field"><label for="prU">Berlaku sampai tanggal (opsional)</label><input id="prU" type="date"></div>'
+      +'<div class="two" style="margin-bottom:6px"><div class="field" style="margin:0"><label for="prJ1">Jam mulai</label><input id="prJ1" type="time"></div><div class="field" style="margin:0"><label for="prJ2">Jam selesai</label><input id="prJ2" type="time"></div></div>'
+      +'<p class="hint" style="margin:0 0 12px">Kosongkan jam agar promo berlaku sepanjang hari.</p>'
+      +'<button class="btn" id="prGo" type="button" style="margin:0;width:100%">Aktifkan promo</button></details>'
+      +'<h2 class="h">Promo stand ini</h2>'
+      +(mine.length?mine.map(pcard).join(''):'<div class="empty"><div>🏷️</div><b>Belum ada promo</b><p>Buat promo supaya menu tampil dengan harga diskon di aplikasi pembeli.</p></div>');
+    $('prGo').addEventListener('click',function(){
+      var nm=clean($('prN').value),sc=$('prS').value,ty=$('prT').value,v=Math.round(+$('prV').value),u=$('prU').value;
+      if(nm.length<2){toast('Isi nama promo dulu.');return}
+      if(!(v>0)){toast('Isi nilai potongan dengan benar.');return}
+      if(ty==='pct'&&v>90){toast('Diskon maksimal 90%.');return}
+      if(ty==='rp'&&sc!=='all'){var a=sc.split(':');if(v>=s.menu[a[0]][+a[1]][1]){toast('Potongan harus lebih kecil dari harga menu.');return}}
+      if(u&&u<today()){toast('Tanggal berakhir sudah lewat.');return}
+      var j1=$('prJ1').value,j2=$('prJ2').value;
+      if((j1&&!j2)||(!j1&&j2)){toast('Isi jam mulai dan jam selesai sekaligus.');return}
+      if(j1&&j1===j2){toast('Jam mulai dan jam selesai tidak boleh sama.');return}
+      promos.push({id:'p'+Date.now().toString(36)+promos.length,sid:sellSid,name:nm,scope:sc,type:ty,val:v,until:u,tf:j1,tt:j2,on:true});
+      toast('Promo diaktifkan');sellPromo(w);
+    });
+    w.querySelectorAll('[data-pt]').forEach(function(b){b.addEventListener('click',function(){
+      promos.forEach(function(p){if(p.id===b.getAttribute('data-pt'))p.on=!p.on});sellPromo(w);
+    })});
+    w.querySelectorAll('[data-pd]').forEach(function(b){b.addEventListener('click',function(){
+      promos=promos.filter(function(p){return p.id!==b.getAttribute('data-pd')});toast('Promo dihapus');sellPromo(w);
+    })});
+    w.scrollTop=st;
+  }
+
+  /* login penjual & operator */
+  function loginS(){
+    var id=$('sNum').value.trim(),pw2=$('sPw').value,m=id.match(/^1234[_\s-]+(.+)$/),st=null,e=$('sMsg');
+    ['fSN','fSP'].forEach(function(i){$(i).classList.remove('err')});e.className='msg bad';
+    if(m){var k=stKey(m[1]);STANDS.forEach(function(x){if(stKey(x.name)===k)st=x})}
+    if(!st){$('fSN').classList.add('err');e.textContent=id?'Nomor penjual tidak dikenali. Gunakan format 1234_Nama stand.':'Isi nomor penjual dulu.';$('sNum').focus();return}
+    if(!pw2){$('fSP').classList.add('err');e.textContent='Isi password kamu.';$('sPw').focus();return}
+    if(pw2!==(st.pw||'1234')){$('fSP').classList.add('err');e.textContent='Nomor atau password salah. Coba lagi.';$('sPw').focus();return}
+    e.textContent='';demoAuto=false;opMode=false;$('sOut').textContent='Keluar';sellSid=st.id;sellTab=0;$('sName').textContent=st.name;$('sNum').value='';$('sPw').value='';show('sSell');
+  }
+  function loginO(){
+    var v=$('oCode').value.trim().toUpperCase(),e=$('oMsg');$('fOC').classList.remove('err');e.className='msg bad';
+    if(!v){$('fOC').classList.add('err');e.textContent='Isi kode operator.';return}
+    if(v!==OPCODE){$('fOC').classList.add('err');e.textContent='Kode operator salah.';return}
+    e.textContent='';demoAuto=false;opMode=false;opTab=0;$('oCode').value='';show('sOp');if(freshN())toast(freshN()+' pembayaran sewa baru dari penjual');
+  }
+  $('toSell').addEventListener('click',function(){show('sSLogin')});
+  $('sToB').addEventListener('click',function(){show('sLogin')});
+  $('sToO').addEventListener('click',function(){show('sOLogin')});
+  $('oToB').addEventListener('click',function(){show('sLogin')});
+  $('oToS').addEventListener('click',function(){show('sSLogin')});
+  $('sGo').addEventListener('click',loginS);
+  $('oGo').addEventListener('click',loginO);
+  ['sNum','sPw'].forEach(function(i){$(i).addEventListener('keydown',function(e){if(e.key==='Enter')loginS()})});
+  $('oCode').addEventListener('keydown',function(e){if(e.key==='Enter')loginO()});
+  $('opOut').addEventListener('click',function(){show('sLogin')});
+
+  /* operator */
+  function sellerNum(s){return '1234_'+s.name.replace(/^stand\s*/i,'').replace(/\s+/g,'')}
+  function agg(sid,from){
+    var r={n:0,q:0,om:0,hpp:0};
+    orders.forEach(function(o){if(o.date.getTime()<from)return;o.parts.forEach(function(p){
+      if(psid(p)!==sid||!cnt(o,p))return;r.n++;
+      p.items.forEach(function(i){r.q+=i[2];r.om+=i[1]*i[2];r.hpp+=cost(i)*i[2]});
+    })});
+    return r;
+  }
+  function perStart(k){var d=new Date();if(k==='D')return dayStart(d);if(k==='W')return wkStart(d);if(k==='M')return new Date(d.getFullYear(),d.getMonth(),1).getTime();return 0}
+  function renderOp(){
+    var tb=$('opTabs');tb.innerHTML='';
+    ['Stand','Laporan','Pesanan','Sewa'+(freshN()?' ('+freshN()+')':''),'Rekap Sewa'].forEach(function(nm,i){
+      var b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.setAttribute('aria-selected',i===opTab);b.textContent=nm;
+      b.addEventListener('click',function(){opTab=i;renderOp()});tb.appendChild(b);
+    });
+    var w=$('opBody');
+    if(opTab===0)opStands(w);else if(opTab===1)opReport(w);else if(opTab===2)opOrders(w);else if(opTab===3)opRent(w);else opRecap(w);
+  }
+  function opStands(w){
+    var st=w.scrollTop;
+    w.innerHTML='<details class="ord addm"><summary>+ Tambah stand baru</summary>'
+      +'<div class="field"><label for="nsN">Nama stand</label><input id="nsN" maxlength="24" placeholder="Contoh: Bu Sri"></div>'
+      +'<div class="field"><label for="nsD">Deskripsi singkat</label><input id="nsD" maxlength="50" placeholder="Contoh: Aneka nasi dan lauk"></div>'
+      +'<div class="field"><label for="nsE">Ikon</label><select id="nsE"><option>🍛</option><option>🍜</option><option>🥗</option><option>🍗</option><option>🥤</option><option>🍰</option><option>🍩</option><option>🧋</option></select></div>'
+      +'<div class="field"><label for="nsP">Password stand</label><input id="nsP" maxlength="12" value="1234"></div>'
+      +'<div class="field"><label for="nsR">Sewa per bulan (Rp)</label><input id="nsR" type="number" inputmode="numeric" min="0" step="50000" value="100000"></div>'
+      +'<div class="field"><label for="nsJ">Jatuh tempo sewa (tanggal 1 sampai 28)</label><input id="nsJ" type="number" inputmode="numeric" min="1" max="28" value="5"></div>'
+      +'<label class="chkl"><input type="checkbox" id="nsF"> Biaya pendaftaran '+rp(REGFEE)+' sudah dibayar (tunai)</label>'
+      +'<button class="btn" id="nsGo" type="button" style="margin:0;width:100%">Buat stand</button></details>'
+      +'<h2 class="h">Daftar stand ('+STANDS.length+')</h2>'
+      +STANDS.map(function(s){
+        var nm=['berat','snack','minum'].reduce(function(a,c){return a+s.menu[c].filter(function(m){return !m[7]}).length},0),act=0;
+        orders.forEach(function(o){if(o.live)o.parts.forEach(function(p){if(psid(p)===s.id&&!p.taken)act++})});
+        return '<div class="ord"><div class="row" style="justify-content:flex-start;gap:12px"><span class="badge" style="background:'+s.bg+';flex:0 0 48px;height:48px;font-size:1.6rem">'+s.em+'</span><div><b>'+s.name+'</b><p class="dt" style="margin:0">'+(s.desc||'')+'</p></div></div>'
+          +'<p class="dt">Nomor penjual <b>'+sellerNum(s)+'</b>, password <b>'+(s.pw||'1234')+'</b></p>'
+          +'<p class="dt">'+nm+' menu, '+act+' pesanan belum diambil</p>'
+          +'<p class="dt">Pendaftaran: '+(regInfo(s)?'lunas':'belum bayar')+', sewa bulan ini: '+rentInfo(s,ym(new Date())).st.toLowerCase()+'</p>'
+          +'<div class="two"><button class="btn alt" type="button" data-o="'+s.id+'">Buka dashboard</button><button class="btn alt dng" type="button" data-x="'+s.id+'">Hapus</button></div></div>';
+      }).join('');
+    $('nsGo').addEventListener('click',function(){
+      var nm=clean($('nsN').value);
+      if(nm.length<3){toast('Nama stand minimal 3 huruf.');return}
+      var full=/^stand\s/i.test(nm)?nm:'Stand '+nm;
+      if(stKey(full).length<3){toast('Nama stand harus memuat huruf.');return}
+      if(STANDS.some(function(x){return stKey(x.name)===stKey(full)})){toast('Nama stand sudah dipakai.');return}
+      var cols=['#F6B8CB','#A9CC86','#E4EFD6','#FBD9A8','#CFE3F5'];
+      STANDS.push({id:'n'+Date.now().toString(36),name:full,desc:clean($('nsD').value)||'Stand baru',em:$('nsE').value,bg:cols[STANDS.length%cols.length],pw:clean($('nsP').value)||'1234',rent:Math.max(0,Math.round(+$('nsR').value)||0),due:Math.min(28,Math.max(1,Math.round(+$('nsJ').value)||5)),menu:{berat:[],snack:[],minum:[]}});
+      var ns=STANDS[STANDS.length-1],paidReg=$('nsF').checked;ns.since=ym(new Date());
+      if(paidReg)rents.push({id:'r'+Date.now().toString(36),sid:ns.id,sn:ns.name,kind:'daftar',month:ns.since,amount:REGFEE,date:today(),method:'Tunai',note:'Biaya pendaftaran',no:rno()});
+      toast(full+' dibuat'+(paidReg?'':'. Biaya pendaftaran '+rp(REGFEE)+' ditagihkan ke penjual'));renderOp();
+    });
+    w.querySelectorAll('[data-o]').forEach(function(b){b.addEventListener('click',function(){
+      var s=find(b.getAttribute('data-o'));opMode=true;sellSid=s.id;sellTab=0;$('sName').textContent=s.name;$('sOut').textContent='Kembali';show('sSell');
+    })});
+    w.querySelectorAll('[data-x]').forEach(function(b){b.addEventListener('click',function(){
+      var s=find(b.getAttribute('data-x'));
+      if(b.getAttribute('data-arm')!=='1'){b.setAttribute('data-arm','1');b.textContent='Yakin hapus?';setTimeout(function(){b.setAttribute('data-arm','');b.textContent='Hapus'},3000);return}
+      var pend=orders.some(function(o){return o.live&&o.parts.some(function(p){return psid(p)===s.id&&!p.taken})});
+      if(pend){toast('Masih ada pesanan yang belum diambil di stand ini.');return}
+      STANDS.splice(STANDS.indexOf(s),1);promos=promos.filter(function(p){return p.sid!==s.id});
+      for(var k in cart)if(cart[k].s===s.id)delete cart[k];
+      bar();toast(s.name+' dihapus');renderOp();
+    })});
+    w.scrollTop=st;
+  }
+  function opReport(w){
+    var st=w.scrollTop,from=perStart(opPer),tot={n:0,om:0,hpp:0},PL=[['D','Hari ini'],['W','Minggu ini'],['M','Bulan ini'],['A','Semua']];
+    var rows=STANDS.map(function(s){var r=agg(s.id,from);tot.n+=r.n;tot.om+=r.om;tot.hpp+=r.hpp;return '<tr><td>'+s.name.replace(/^Stand /,'')+'</td><td>'+r.n+'</td><td>'+rp(r.om)+'</td><td>'+rp(r.om-r.hpp)+'</td></tr>'}).join('');
+    w.innerHTML='<div class="seg" role="tablist">'+PL.map(function(p){return '<button type="button" role="tab" data-p="'+p[0]+'" aria-selected="'+(opPer===p[0])+'">'+p[1]+'</button>'}).join('')+'</div>'
+      +'<div class="stats"><div class="stat"><p>Total omset</p><b>'+rp(tot.om)+'</b></div><div class="stat k"><p>Total keuntungan</p><b>'+rp(tot.om-tot.hpp)+'</b></div></div>'
+      +'<div class="ord" style="overflow-x:auto"><table class="tbl"><thead><tr><th>Stand</th><th>Pesanan</th><th>Omset</th><th>Untung</th></tr></thead><tbody>'+(rows||'<tr><td colspan="4">Belum ada stand</td></tr>')+'</tbody><tfoot><tr><td>Total</td><td>'+tot.n+'</td><td>'+rp(tot.om)+'</td><td>'+rp(tot.om-tot.hpp)+'</td></tr></tfoot></table></div>'
+      +'<button class="btn" id="oxl" type="button" style="margin:0">Unduh Excel</button>'
+      +'<p class="dt">Hanya stand yang masih aktif yang dihitung. Pembayaran tunai dihitung setelah pesanan diambil.</p>';
+    w.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){opPer=b.getAttribute('data-p');opReport(w)})});
+    $('oxl').addEventListener('click',function(){withXlsx(buildOpXlsx)});
+    w.scrollTop=st;
+  }
+  function opOrders(w){
+    var L=orders.slice().reverse().slice(0,40);
+    w.innerHTML=L.map(function(o){
+      return '<div class="ord"><div class="row"><b>#'+o.id+'</b><span class="dt">'+fmt(o.date)+'</span></div><p class="dt">NIM '+o.nim+', '+o.method+'</p>'
+        +o.parts.map(function(p){var done=!o.live||p.taken;return '<div class="part"><div class="row"><b>'+p.name+'</b><span class="chip'+(done?'':' p')+'">'+(done?'Selesai':ST[p.st][0])+'</span></div>'+lines(p)+'</div>'}).join('')
+        +'<div class="ln tot"><span>Total</span><span>'+rp(o.total)+'</span></div></div>';
+    }).join('')||'<div class="empty"><div>🧾</div><b>Belum ada pesanan</b></div>';
+  }
+  function saveXlsx(wb,fname){
+    var buf=XLSX.write(wb,{bookType:'xlsx',type:'array'});
+    if(!window.claude||!window.claude.use){
+      var bl=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),lk=document.createElement('a');
+      lk.href=URL.createObjectURL(bl);lk.download=fname;document.body.appendChild(lk);lk.click();lk.remove();toast('File Excel diunduh.');return;
+    }
+    window.claude.use('downloads').then(function(dl){
+      if(!dl){toast('Unduhan tidak tersedia di tampilan ini.');return}
+      return dl.save({filename:fname,data:buf}).then(function(){toast('File Excel disimpan.')});
+    }).catch(function(e){toast(e&&e.code==='declined'?'Unduhan dibatalkan.':'Gagal membuat file Excel.')});
+  }
+  function buildOpXlsx(){
+    var wb=XLSX.utils.book_new(),PL=[['D','Hari ini'],['W','Minggu ini'],['M','Bulan ini'],['A','Semua']],
+        rows=[['Stand','Periode','Jumlah pesanan','Item terjual','Omset (Rp)','Modal (Rp)','Keuntungan (Rp)']];
+    PL.forEach(function(p){
+      var t={n:0,q:0,om:0,hpp:0};
+      STANDS.forEach(function(s){var r=agg(s.id,perStart(p[0]));rows.push([s.name,p[1],r.n,r.q,r.om,r.hpp,r.om-r.hpp]);t.n+=r.n;t.q+=r.q;t.om+=r.om;t.hpp+=r.hpp});
+      rows.push(['Total semua stand',p[1],t.n,t.q,t.om,t.hpp,t.om-t.hpp]);
+    });
+    var ws=XLSX.utils.aoa_to_sheet(rows);ws['!cols']=[{wch:22},{wch:14},{wch:16},{wch:14},{wch:16},{wch:16},{wch:18}];
+    XLSX.utils.book_append_sheet(wb,ws,'Ringkasan');
+    var det=[['Stand','Tanggal','Jam','No. pesanan','NIM','Metode bayar','Menu','Jumlah','Harga satuan (Rp)','Modal satuan (Rp)','Omset (Rp)','Keuntungan (Rp)']];
+    orders.slice().sort(function(a,b){return b.date-a.date}).forEach(function(o){o.parts.forEach(function(p){
+      var sd=find(psid(p));if(!sd||!cnt(o,p))return;
+      p.items.forEach(function(i){var c=cost(i);det.push([sd.name,o.date.toLocaleDateString('id-ID'),o.date.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}),o.id,o.nim||'-',o.method,i[0],i[2],i[1],c,i[1]*i[2],(i[1]-c)*i[2]])});
+    })});
+    var wd=XLSX.utils.aoa_to_sheet(det);wd['!cols']=[{wch:20},{wch:12},{wch:8},{wch:12},{wch:14},{wch:12},{wch:22},{wch:8},{wch:16},{wch:16},{wch:14},{wch:16}];
+    XLSX.utils.book_append_sheet(wb,wd,'Detail Transaksi');
+    saveXlsx(wb,'laporan-operator-'+new Date().toISOString().slice(0,10)+'.xlsx');
+  }
+
+  /* sewa penjual */
+  var REGFEE=50000,payBill=null,payM=null,payRek='',billTop=false;
+  function ym(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)}
+  function ymAdd(k,n){var a=k.split('-');return ym(new Date(+a[0],+a[1]-1+n,1))}
+  function ymLabel(k){var a=k.split('-');return new Date(+a[0],+a[1]-1,1).toLocaleDateString('id-ID',{month:'long',year:'numeric'})}
+  function shortMonth(k){var a=k.split('-');return new Date(+a[0],+a[1]-1,1).toLocaleDateString('id-ID',{month:'short'})}
+  function fdate(iso){var a=iso.split('-');return new Date(+a[0],+a[1]-1,+a[2]).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})}
+  function rno(){return 'SW-'+Date.now().toString(36).toUpperCase().slice(-6)}
+  opMonth=ym(new Date());
+  (function(){
+    var cur=ym(new Date()),prev=ymAdd(cur,-1),old=ymAdd(cur,-2);
+    STANDS.forEach(function(x){x.since=prev});
+    rents=[
+      {id:'g1',sid:'to',sn:'Stand Pak To',kind:'daftar',month:old,amount:50000,date:old+'-15',method:'Tunai',note:'Biaya pendaftaran',no:'SW-0001'},
+      {id:'g2',sid:'ris',sn:'Stand Pak Ris',kind:'daftar',month:old,amount:50000,date:old+'-18',method:'Tunai',note:'Biaya pendaftaran',no:'SW-0002'},
+      {id:'g3',sid:'ron',sn:'Stand Bu Ron',kind:'daftar',month:old,amount:50000,date:old+'-20',method:'Transfer',note:'Biaya pendaftaran',no:'SW-0003'},
+      {id:'r1',sid:'to',sn:'Stand Pak To',kind:'sewa',month:prev,amount:100000,date:prev+'-04',method:'Transfer',note:'',no:'SW-0004'},
+      {id:'r2',sid:'ris',sn:'Stand Pak Ris',kind:'sewa',month:prev,amount:100000,date:prev+'-09',method:'Tunai',note:'Dibayar setelah jatuh tempo',no:'SW-0005'},
+      {id:'r3',sid:'ron',sn:'Stand Bu Ron',kind:'sewa',month:prev,amount:100000,date:prev+'-05',method:'QRIS',note:'',no:'SW-0006'},
+      {id:'r4',sid:'to',sn:'Stand Pak To',kind:'sewa',month:cur,amount:100000,date:cur+'-01',method:'Transfer',note:'',no:'SW-0007'}
+    ];
+  })();
+  function rentInfo(x,k){
+    if(x.since&&x.since>k)return{paid:0,rent:0,due:k+'-01',last:'',st:'Belum ditagih',sisa:0,nb:true};
+    var paid=0,last='';
+    rents.forEach(function(r){if(r.sid===x.id&&r.kind!=='daftar'&&r.month===k){paid+=r.amount;if(r.date>last)last=r.date}});
+    var rent=x.rent||0,due=k+'-'+('0'+(x.due||5)).slice(-2),late=today()>due,st;
+    if(rent===0)st='Tanpa sewa';
+    else if(paid>=rent)st='Lunas';
+    else if(paid>0)st=late?'Sebagian, terlambat':'Sebagian';
+    else st=late?'Terlambat':'Belum bayar';
+    return{paid:paid,rent:rent,due:due,last:last,st:st,sisa:Math.max(0,rent-paid)};
+  }
+  function regInfo(x){var f=null;rents.forEach(function(r){if(r.sid===x.id&&r.kind==='daftar'&&!f)f=r});return f}
+  function billMonths(x){var cur=ym(new Date()),a=[],k=x.since||cur,st=ymAdd(cur,-2);if(k<st)k=st;for(;k<=cur;k=ymAdd(k,1))a.push(k);return a}
+  function unpaidN(x){if(!x)return 0;var n=regInfo(x)?0:1;billMonths(x).forEach(function(k){var r=rentInfo(x,k);if(r.sisa>0)n++});return n}
+  function freshN(){return rents.filter(function(r){return r.fresh}).length}
+  function mrecap(k){
+    var o={tag:0,paid:0,belum:0,reg:0};
+    STANDS.forEach(function(x){var r=rentInfo(x,k);if(r.nb)return;o.tag+=r.rent;o.paid+=Math.min(r.paid,r.rent)});
+    o.belum=o.tag-o.paid;
+    rents.forEach(function(r){if(r.kind==='daftar'&&r.date.slice(0,7)===k&&find(r.sid))o.reg+=r.amount});
+    return o;
+  }
+  function shortName(x){return x.name.replace(/^Stand /,'')}
+
+  function opRent(w){
+    var st=w.scrollTop,tot={rent:0,paid:0},cur=ym(new Date()),k=opMonth,i;
+    var cards=STANDS.map(function(x){
+      var r=rentInfo(x,k),rg=regInfo(x);tot.rent+=r.rent;tot.paid+=Math.min(r.paid,r.rent);
+      var ok=r.st==='Lunas'||r.st==='Tanpa sewa'||r.nb;
+      return '<div class="ord"><div class="row"><b>'+x.name+'</b><span class="chip'+(ok?'':' p')+'">'+r.st+'</span></div>'
+        +'<p class="dt">Terbayar '+rp(r.paid)+' dari '+rp(r.rent)+', jatuh tempo '+fdate(r.due)+'</p>'
+        +(r.last?'<p class="dt">Pembayaran terakhir '+fdate(r.last)+'</p>':'')
+        +'<p class="dt">Biaya pendaftaran '+rp(REGFEE)+': '+(rg?'lunas, dibayar '+fdate(rg.date):'belum bayar')+'</p>'
+        +'<div class="two"><div class="field" style="margin:8px 0 0"><label for="rr_'+x.id+'">Sewa per bulan (Rp)</label><input id="rr_'+x.id+'" type="number" inputmode="numeric" min="0" step="50000" data-rent="'+x.id+'" value="'+(x.rent||0)+'"></div>'
+        +'<div class="field" style="margin:8px 0 0"><label for="rj_'+x.id+'">Jatuh tempo (tgl)</label><input id="rj_'+x.id+'" type="number" inputmode="numeric" min="1" max="28" data-due="'+x.id+'" value="'+(x.due||5)+'"></div></div>'
+        +(rg?'<button class="btn alt" type="button" data-pay="'+x.id+'">Catat pembayaran sewa</button>'
+            :'<div class="two"><button class="btn alt" type="button" data-pay="'+x.id+'">Catat sewa</button><button class="btn alt" type="button" data-reg="'+x.id+'">Catat pendaftaran</button></div>')
+        +'</div>';
+    }).join('')||'<div class="empty"><div>🏠</div><b>Belum ada stand</b></div>';
+    var so=STANDS.map(function(x){return '<option value="'+x.id+'">'+x.name+'</option>'}).join(''),mo='';
+    for(i=1;i>=-5;i--){var m=ymAdd(cur,i);mo+='<option value="'+m+'"'+(m===k?' selected':'')+'>'+ymLabel(m)+'</option>'}
+    var hist=rents.slice().sort(function(a,b){return b.date.localeCompare(a.date)}).slice(0,30).map(function(r){
+      return '<div class="ord"><div class="row"><b>'+r.sn+'</b><span class="chip">'+(r.kind==='daftar'?'Pendaftaran':ymLabel(r.month))+'</span></div>'
+        +'<p class="dt">'+(r.no?r.no+', ':'')+'Dibayar '+fdate(r.date)+', '+r.method+(r.note?', '+r.note:'')+'</p>'
+        +(r.src==='penjual'?'<div class="chips" style="margin-top:6px"><span class="chip p">Dibayar penjual</span>'+(r.fresh?'<span class="chip p">Baru</span>':'')+'</div>':'')
+        +'<div class="ln tot"><span>Jumlah</span><span>'+rp(r.amount)+'</span></div>'
+        +'<button class="btn alt dng" type="button" data-rd="'+r.id+'">Hapus catatan</button></div>';
+    }).join('')||'<div class="empty"><div>🧾</div><b>Belum ada catatan sewa</b></div>';
+    w.innerHTML='<div class="ord"><div class="row"><button class="mini" id="rPrev" type="button" style="margin:0">&#8249; Sebelumnya</button><b>'+ymLabel(k)+'</b><button class="mini" id="rNext" type="button" style="margin:0">Berikutnya &#8250;</button></div></div>'
+      +'<div class="stats"><div class="stat"><p>Tagihan sewa</p><b>'+rp(tot.rent)+'</b></div><div class="stat k"><p>Sudah terbayar</p><b>'+rp(tot.paid)+'</b></div></div>'
+      +'<details class="ord addm" id="rForm"><summary>+ Catat pembayaran</summary>'
+      +'<div class="field"><label for="rJ">Jenis pembayaran</label><select id="rJ"><option value="sewa">Sewa bulanan</option><option value="daftar">Biaya pendaftaran</option></select></div>'
+      +'<div class="field"><label for="rS">Stand</label><select id="rS">'+so+'</select></div>'
+      +'<div class="field"><label for="rM">Untuk bulan (sewa bulanan)</label><select id="rM">'+mo+'</select></div>'
+      +'<div class="field"><label for="rD">Tanggal pembayaran</label><input id="rD" type="date" value="'+today()+'"></div>'
+      +'<div class="field"><label for="rA">Jumlah (Rp), kosongkan untuk sisa tagihan</label><input id="rA" type="number" inputmode="numeric" min="0" step="50000"></div>'
+      +'<div class="field"><label for="rT">Metode</label><select id="rT"><option>Tunai</option><option>Transfer</option><option>QRIS</option><option>E-wallet</option></select></div>'
+      +'<div class="field"><label for="rN">Catatan (opsional)</label><input id="rN" maxlength="40"></div>'
+      +'<button class="btn" id="rGo" type="button" style="margin:0;width:100%">Simpan pembayaran</button></details>'
+      +'<h2 class="h">Status sewa per stand</h2>'+cards
+      +'<h2 class="h">Riwayat pembayaran</h2>'+hist
+      +'<button class="btn" id="rxl" type="button" style="margin:0">Unduh Excel</button>';
+    rents.forEach(function(r){r.fresh=false});
+    $('rPrev').addEventListener('click',function(){opMonth=ymAdd(opMonth,-1);opRent(w)});
+    $('rNext').addEventListener('click',function(){opMonth=ymAdd(opMonth,1);opRent(w)});
+    $('rGo').addEventListener('click',function(){
+      var sd=find($('rS').value),jn=$('rJ').value,mo2=$('rM').value,dt=$('rD').value,raw=$('rA').value;
+      if(!sd){toast('Pilih stand dulu.');return}
+      if(!dt){toast('Isi tanggal pembayaran.');return}
+      if(dt>today()){toast('Tanggal pembayaran tidak boleh di masa depan.');return}
+      var amt;
+      if(jn==='daftar'){
+        if(regInfo(sd)&&raw===''){toast('Biaya pendaftaran stand ini sudah lunas.');return}
+        amt=raw===''?REGFEE:Math.round(+raw);mo2=sd.since||ym(new Date());
+      }else{
+        var ri=rentInfo(sd,mo2);amt=raw===''?ri.sisa:Math.round(+raw);
+        if(ri.nb){toast('Bulan itu belum ditagih untuk stand ini.');return}
+      }
+      if(!(amt>0)){toast(raw===''?'Tagihan itu sudah lunas. Isi jumlah jika tetap ingin mencatat.':'Isi jumlah pembayaran dengan benar.');return}
+      rents.push({id:'r'+Date.now().toString(36)+rents.length,sid:sd.id,sn:sd.name,kind:jn,month:mo2,amount:amt,date:dt,method:$('rT').value,note:clean($('rN').value),no:rno()});
+      if(jn==='sewa')opMonth=mo2;
+      toast('Pembayaran '+(jn==='daftar'?'pendaftaran ':'sewa ')+sd.name+' dicatat');opRent(w);
+    });
+    w.querySelectorAll('[data-rent]').forEach(function(x){x.addEventListener('change',function(){var y=find(x.getAttribute('data-rent'));y.rent=Math.max(0,Math.round(+x.value)||0);opRent(w)})});
+    w.querySelectorAll('[data-due]').forEach(function(x){x.addEventListener('change',function(){var y=find(x.getAttribute('data-due'));y.due=Math.min(28,Math.max(1,Math.round(+x.value)||5));opRent(w)})});
+    w.querySelectorAll('[data-pay]').forEach(function(b){b.addEventListener('click',function(){
+      $('rJ').value='sewa';$('rS').value=b.getAttribute('data-pay');$('rM').value=opMonth;$('rForm').open=true;w.scrollTop=0;
+    })});
+    w.querySelectorAll('[data-reg]').forEach(function(b){b.addEventListener('click',function(){
+      $('rJ').value='daftar';$('rS').value=b.getAttribute('data-reg');$('rForm').open=true;w.scrollTop=0;
+    })});
+    w.querySelectorAll('[data-rd]').forEach(function(b){b.addEventListener('click',function(){
+      if(b.getAttribute('data-arm')!=='1'){b.setAttribute('data-arm','1');b.textContent='Yakin hapus?';setTimeout(function(){b.setAttribute('data-arm','');b.textContent='Hapus catatan'},3000);return}
+      rents=rents.filter(function(r){return r.id!==b.getAttribute('data-rd')});toast('Catatan dihapus');opRent(w);
+    })});
+    $('rxl').addEventListener('click',function(){withXlsx(buildRentXlsx)});
+    w.scrollTop=st;
+  }
+  function opRecap(w){
+    var st=w.scrollTop,cur=ym(new Date()),i,months=[];
+    for(i=5;i>=0;i--)months.push(ymAdd(cur,-i));
+    var T6={tag:0,paid:0,belum:0,reg:0};
+    var rrows=months.slice().reverse().map(function(m){var o=mrecap(m);T6.tag+=o.tag;T6.paid+=o.paid;T6.belum+=o.belum;T6.reg+=o.reg;
+      return '<tr><td>'+shortMonth(m)+' '+m.slice(0,4)+'</td><td>'+rp(o.tag)+'</td><td>'+rp(o.paid)+'</td><td class="'+(o.belum?'no':'')+'">'+rp(o.belum)+'</td><td>'+rp(o.reg)+'</td></tr>'}).join('');
+    var m4=months.slice(2);
+    var mrows=STANDS.map(function(x){
+      return '<tr><td>'+shortName(x)+'</td>'+m4.map(function(m){var r=rentInfo(x,m),t=r.nb?'-':(r.st==='Lunas'?'Lunas':(r.paid>0?'Sebagian':'Belum'));return '<td class="'+(t==='Lunas'?'ok':(t==='-'?'':'no'))+'">'+t+'</td>'}).join('')
+        +'<td class="'+(regInfo(x)?'ok':'no')+'">'+(regInfo(x)?'Lunas':'Belum')+'</td></tr>'}).join('');
+    w.innerHTML='<div class="stats"><div class="stat"><p>Terbayar (6 bulan)</p><b>'+rp(T6.paid)+'</b></div><div class="stat k"><p>Belum terbayar</p><b>'+rp(T6.belum)+'</b></div></div>'
+      +'<h2 class="h">Rekap sewa per bulan</h2>'
+      +'<div class="ord" style="overflow-x:auto"><table class="tbl sm"><thead><tr><th>Bulan</th><th>Tagihan</th><th>Terbayar</th><th>Belum</th><th>Daftar</th></tr></thead><tbody>'+rrows+'</tbody><tfoot><tr><td>Total</td><td>'+rp(T6.tag)+'</td><td>'+rp(T6.paid)+'</td><td>'+rp(T6.belum)+'</td><td>'+rp(T6.reg)+'</td></tr></tfoot></table></div>'
+      +'<h2 class="h">Rekap per stand</h2>'
+      +'<div class="ord" style="overflow-x:auto"><table class="tbl sm"><thead><tr><th>Stand</th>'+m4.map(function(m){return '<th>'+shortMonth(m)+'</th>'}).join('')+'<th>Daftar</th></tr></thead><tbody>'+(mrows||'<tr><td colspan="6">Belum ada stand</td></tr>')+'</tbody></table></div>'
+      +'<button class="btn" id="cxl" type="button" style="margin:0">Unduh Excel</button>'
+      +'<p class="dt">Rekap mencakup stand yang masih aktif. Kolom Daftar adalah biaya pendaftaran stand yang masuk pada bulan itu.</p>';
+    $('cxl').addEventListener('click',function(){withXlsx(buildRentXlsx)});
+    w.scrollTop=st;
+  }
+  function buildRentXlsx(){
+    var wb=XLSX.utils.book_new(),cur=ym(new Date()),i,months=[];
+    for(i=11;i>=0;i--)months.push(ymAdd(cur,-i));
+    var a=[['Bulan','Tagihan sewa (Rp)','Sewa terbayar (Rp)','Belum terbayar (Rp)','Biaya pendaftaran masuk (Rp)']];
+    months.slice().reverse().forEach(function(m){var o=mrecap(m);a.push([ymLabel(m),o.tag,o.paid,o.belum,o.reg])});
+    var w1=XLSX.utils.aoa_to_sheet(a);w1['!cols']=[{wch:18},{wch:18},{wch:18},{wch:20},{wch:26}];
+    XLSX.utils.book_append_sheet(wb,w1,'Rekap Bulanan');
+    var b=[['Stand'].concat(months.slice().reverse().map(ymLabel)).concat(['Biaya pendaftaran'])];
+    STANDS.forEach(function(x){b.push([x.name].concat(months.slice().reverse().map(function(m){var r=rentInfo(x,m);return r.nb?'-':r.st})).concat([regInfo(x)?'Lunas':'Belum bayar']))});
+    var w2=XLSX.utils.aoa_to_sheet(b);w2['!cols']=[{wch:20}].concat(months.map(function(){return{wch:18}})).concat([{wch:18}]);
+    XLSX.utils.book_append_sheet(wb,w2,'Rekap per Stand');
+    var h=[['No. bukti','Stand','Jenis','Untuk bulan','Tanggal bayar','Jumlah (Rp)','Metode','Dibayar oleh','Catatan']];
+    rents.slice().sort(function(x,y){return y.date.localeCompare(x.date)}).forEach(function(r){h.push([r.no||'-',r.sn,r.kind==='daftar'?'Pendaftaran':'Sewa bulanan',r.kind==='daftar'?'-':ymLabel(r.month),fdate(r.date),r.amount,r.method,r.src==='penjual'?'Penjual':'Operator',r.note||'-'])});
+    var w3=XLSX.utils.aoa_to_sheet(h);w3['!cols']=[{wch:12},{wch:20},{wch:14},{wch:18},{wch:16},{wch:14},{wch:12},{wch:14},{wch:30}];
+    XLSX.utils.book_append_sheet(wb,w3,'Riwayat Pembayaran');
+    saveXlsx(wb,'rekap-sewa-stand-'+cur+'.xlsx');
+  }
+
+  /* tagihan sewa di tampilan penjual */
+  function sellBill(w){
+    var x=find(sellSid),st=w.scrollTop,cur=ym(new Date()),rg=regInfo(x),bills=[],due=0;
+    bills.push({kind:'daftar',month:x.since||cur,label:'Biaya pendaftaran stand',amount:REGFEE,paid:rg?REGFEE:0,sisa:rg?0:REGFEE,note:'Dibayar sekali saat pendaftaran',st:rg?'Lunas':'Belum bayar',last:rg?rg.date:''});
+    billMonths(x).slice().reverse().forEach(function(k){var r=rentInfo(x,k);bills.push({kind:'sewa',month:k,label:'Sewa '+ymLabel(k),amount:r.rent,paid:r.paid,sisa:r.sisa,note:'Jatuh tempo '+fdate(r.due),st:r.st,last:r.last})});
+    bills.forEach(function(b){due+=b.sisa});
+    var pb=payBill&&bills.filter(function(b){return b.kind===payBill.kind&&b.month===payBill.month&&b.sisa>0})[0];
+    if(payBill&&!pb)payBill=null;
+    var panel='';
+    if(pb){
+      var detail='';
+      if(payM==='QRIS')detail='<div class="qr" style="margin-top:10px">'+qrSvg('CANTEENPLUS-SEWA|'+x.id+'|'+pb.kind+'|'+pb.month+'|'+pb.sisa)+'<p>Scan QR ini, lalu tekan Bayar Sekarang. QR ini contoh untuk demo, bukan QRIS asli.</p></div>';
+      else if(payM==='Transfer'||payM==='E-wallet')detail='<div class="field" style="margin:10px 0 0"><label for="sbR">No. rekening</label><input id="sbR" inputmode="numeric" maxlength="16" placeholder="Contoh: 1234567890" value="'+payRek+'"></div>';
+      panel='<div class="dtl"><h3>Bayar: '+pb.label+'</h3><p class="dt" style="margin:0 0 10px">Jumlah <b>'+rp(pb.sisa)+'</b></p>'
+        +'<div class="pms" role="radiogroup" aria-label="Metode pembayaran">'+PM.filter(function(m){return m[0]!=='Tunai'}).map(function(m){return '<label class="pm"><input type="radio" name="sm" value="'+m[0]+'"'+(payM===m[0]?' checked':'')+'><span class="ic">'+m[1]+'</span><span class="info"><b>'+m[0]+'</b><small>'+m[2]+'</small></span></label>'}).join('')+'</div>'
+        +detail+'<p class="msg" id="sbMsg" role="status" aria-live="polite" style="margin:8px 0 0"></p>'
+        +'<div class="two" style="margin-top:10px"><button class="btn" id="sbPay" type="button" style="margin:0">Bayar Sekarang</button><button class="btn alt" id="sbCancel" type="button" style="margin:0;height:54px">Batal</button></div></div>';
+    }
+    var cards=bills.map(function(b){
+      var ok=b.st==='Lunas'||b.st==='Tanpa sewa';
+      return '<div class="ord"><div class="row"><b>'+b.label+'</b><span class="chip'+(ok?'':' p')+'">'+b.st+'</span></div>'
+        +'<p class="dt">'+rp(b.amount)+', terbayar '+rp(b.paid)+'. '+b.note+'</p>'
+        +(b.last?'<p class="dt">Pembayaran terakhir '+fdate(b.last)+'</p>':'')
+        +(b.sisa>0?'<button class="btn alt" type="button" data-bk="'+b.kind+'|'+b.month+'">Bayar '+rp(b.sisa)+'</button>':'')+'</div>';
+    }).join('');
+    var hist=rents.filter(function(r){return r.sid===x.id}).sort(function(a,b){return b.date.localeCompare(a.date)}).map(function(r){
+      return '<div class="ord"><div class="row"><b>'+(r.kind==='daftar'?'Biaya pendaftaran':'Sewa '+ymLabel(r.month))+'</b><span class="chip">Lunas</span></div>'
+        +'<p class="dt">'+(r.no?r.no+', ':'')+fdate(r.date)+', '+r.method+'</p><div class="ln tot"><span>Jumlah</span><span>'+rp(r.amount)+'</span></div></div>';
+    }).join('')||'<div class="empty"><div>🧾</div><b>Belum ada pembayaran</b></div>';
+    w.innerHTML='<div class="stats"><div class="stat k"><p>Tagihan belum dibayar</p><b>'+rp(due)+'</b></div><div class="stat"><p>Sewa per bulan</p><b>'+rp(x.rent||0)+'</b></div></div>'
+      +panel+'<h2 class="h">Tagihan</h2>'+cards+'<h2 class="h">Riwayat pembayaran</h2>'+hist;
+    w.querySelectorAll('[data-bk]').forEach(function(b){b.addEventListener('click',function(){
+      var q=b.getAttribute('data-bk').split('|');payBill={kind:q[0],month:q[1]};payM=null;payRek='';billTop=true;sellBill(w);
+    })});
+    if(pb){
+      w.querySelectorAll('input[name="sm"]').forEach(function(r){r.addEventListener('change',function(){payM=r.value;payRek='';sellBill(w)})});
+      if($('sbR'))$('sbR').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'');payRek=this.value});
+      $('sbCancel').addEventListener('click',function(){payBill=null;payM=null;payRek='';sellBill(w)});
+      $('sbPay').addEventListener('click',function(){
+        var m=$('sbMsg');m.className='msg bad';
+        if(!payM){m.textContent='Pilih metode pembayaran dulu.';return}
+        if((payM==='Transfer'||payM==='E-wallet')&&!/^\d{8,16}$/.test(payRek)){m.textContent='No. rekening harus 8 sampai 16 angka.';return}
+        rents.push({id:'r'+Date.now().toString(36)+rents.length,sid:x.id,sn:x.name,kind:pb.kind,month:pb.month,amount:pb.sisa,date:today(),method:payM,note:'Dibayar oleh penjual',src:'penjual',fresh:true,no:rno()});
+        var lb=pb.label;payBill=null;payM=null;payRek='';toast('Pembayaran '+lb+' berhasil. Operator sudah diberi tahu.');sellBill(w);
+      });
+    }
+    w.scrollTop=billTop?0:st;billTop=false;
+  }
 
   /* simulasi status per stand */
   setInterval(function(){
